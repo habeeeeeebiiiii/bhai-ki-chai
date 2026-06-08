@@ -1,0 +1,181 @@
+{
+  "theme": "Light",
+  "archetype": "Archetype 4: Swiss & High-Contrast (Brutalist Twist)",
+  "design_philosophy": "Bold, brutal, confident, Indian street-food meets premium pitch deck. Minimal text, maximum visual impact. No fluff.",
+  "colors": {
+    "background": "#FFFFFF",
+    "primary": "#FF6B00",
+    "text_dark": "#0A0A0A",
+    "gold_accent": "#B8960A",
+    "cream_section": "#FFF8F0"
+  },
+  "typography": {
+    "headings": {
+      "family": "Anton, sans-serif",
+      "style": "uppercase, tight tracking, brutalist display",
+      "scale": {
+        "hero_h1": "text-6xl sm:text-8xl lg:text-[10vw] leading-[0.85] tracking-tighter",
+        "h2": "text-4xl sm:text-5xl lg:text-7xl leading-[0.9] tracking-tight",
+        "h3": "text-2xl sm:text-3xl lg:text-4xl"
+      }
+    },
+    "body": {
+      "family": "Manrope, sans-serif",
+      "style": "clean, modern sans-serif",
+      "scale": {
+        "base": "text-base lg:text-lg leading-relaxed",
+        "small": "text-sm uppercase tracking-[0.2em]"
+      }
+    },
+    "emotional": {
+      "family": "Playfair Display, serif",
+      "style": "italic",
+      "scale": "text-3xl md:text-5xl lg:text-6xl leading-tight"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-4 md:px-8 lg:px-12",
+    "section_spacing": "py-24 md:py-32 lg:py-40",
+    "grid": "grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8"
+  },
+  "motion_and_interactions": {
+    "cursor": {
+      "type": "custom",
+      "behavior": "animated chai cup with steam trail that follows mouse pointer. Hides default cursor.",
+      "implementation": "framer-motion for smooth spring physics on x/y coordinates. Hidden on mobile."
+    },
+    "scroll_animations": {
+      "engine": "GSAP ScrollTrigger + Framer Motion",
+      "hero_typography": "word-by-word stagger drops from top (y: -100%, opacity: 0 to y: 0, opacity: 1), duration: 0.8s, ease: 'power4.out', stagger: 0.1s",
+      "text_reveals": "lines mask-up reveal on scroll into view",
+      "counters": "GSAP animate value from 0 to target on scroll, duration 2s, ease: 'expo.out'"
+    }
+  },
+  "components": {
+    "cards": {
+      "style": "solid flat rectangular, #FFFFFF background, 2px solid #0A0A0A borders, sharp corners (rounded-none).",
+      "hover": "translate-x-[-4px] translate-y-[-4px] shadow-[4px_4px_0px_#FF6B00]",
+      "layout": "horizontal scroll carousel on desktop using GSAP ScrollTrigger pinning, vertical stack on mobile"
+    },
+    "map_pins": {
+      "style": "animated SVG drops",
+      "colors": "Hyderabad (Gold #B8960A), Others (Saffron Orange #FF6B00)",
+      "animation": "drop in from top, then pulsing ripple effect (scale and opacity fade out) repeatedly"
+    }
+  },
+  "sections": [
+    {
+      "id": "1",
+      "name": "Loading Screen",
+      "layout": "Fixed fullscreen overlay, white bg, center content, z-50",
+      "elements": "SVG chai cup illustration, steam animation. Text: 'Brewing the hottest proposal Bhai Ki Chai has ever tasted' (Manrope, uppercase, tracking-widest). Cup tips at end to transition out."
+    },
+    {
+      "id": "2",
+      "name": "Hero",
+      "layout": "Min-h-screen flex flex-col justify-end pb-20 pt-32",
+      "background": "#FFFFFF",
+      "elements": "Massive '75,000 CHAI LOVERS.' (Anton, #FF6B00), 'One festival. Three nights. Hyderabad.' (Manrope, Black). 'And this is just the beginning.' (Manrope, small, text-gray-500)."
+    },
+    {
+      "id": "3",
+      "name": "The One Line",
+      "layout": "Full width, heavy text block, py-32 md:py-48",
+      "background": "#0A0A0A",
+      "text_color": "#FFFFFF",
+      "elements": "'YOUR NEXT 1000 FRANCHISE ENQUIRIES ARE SITTING IN ONE STADIUM. THIS OCTOBER.' in Anton, full bleed text responsive sizing."
+    },
+    {
+      "id": "4",
+      "name": "The Audience Truth",
+      "layout": "Grid split: Left large stat, Right context. py-24",
+      "elements": "75,000+ stat counter. Context about corporate audience, IT professionals, FOCO investor pitch."
+    },
+    {
+      "id": "5",
+      "name": "The FOCO Moment",
+      "layout": "Full bleed section, py-32 md:py-48",
+      "background": "#FF6B00",
+      "text_color": "#FFFFFF",
+      "elements": "Massive typography 'FRANCHISE OWNED. COMPANY OPERATED. ZERO HEADACHE. PURE RETURNS.' (Anton). Solid saffron background."
+    },
+    {
+      "id": "6",
+      "name": "The Map",
+      "layout": "Center aligned map, py-24",
+      "background": "#FFF8F0",
+      "elements": "Custom SVG India map. Pins drop in sequence: Hyderabad first (Gold), then others (Orange)."
+    },
+    {
+      "id": "7",
+      "name": "The Numbers",
+      "layout": "Bento grid or multi-column layout, py-24",
+      "elements": "6 animated counters (75,000+, 10M+, 1Cr+, 3, 1, ∞) with descriptive labels."
+    },
+    {
+      "id": "8",
+      "name": "The Competitor Reality",
+      "layout": "2-column split (50/50 screen width), min-h-[60vh]",
+      "elements": "Left: Faded grey bg, grey text 'no other chai brand'. Right: Bold orange bg, black text 'Bhai Ki Chai'."
+    },
+    {
+      "id": "9",
+      "name": "What Bhai Ki Chai Gets",
+      "layout": "Horizontal scroll section (desktop), vertical stack (mobile)",
+      "elements": "8 Brutalist cards with sharp borders. Content: Experience Zone, Franchise Counter, LED Screens, Wristbands, etc."
+    },
+    {
+      "id": "10",
+      "name": "The Chai Conversation",
+      "layout": "Centred, lots of negative space, py-40",
+      "background": "#FFF8F0",
+      "elements": "Playfair Display italic: 'Every great business deal in India started over a cup of chai'"
+    },
+    {
+      "id": "11",
+      "name": "The Ask",
+      "layout": "Full bleed section, py-32",
+      "background": "#FF6B00",
+      "text_color": "#FFFFFF",
+      "elements": "Massive text 'ONE SLOT. ONE CITY TO START. ONE COUNTRY TO CONQUER. ARE YOU IN?' (Anton)"
+    },
+    {
+      "id": "12",
+      "name": "Footer",
+      "layout": "Grid layout, clean structure, py-20",
+      "background": "#0A0A0A",
+      "text_color": "#FFFFFF",
+      "elements": "GFF + Bhai Ki Chai logos. October 9-11, 2026 Gachibowli Stadium. Habeeb Ali contact info."
+    }
+  ],
+  "media": {
+    "images": [
+      {
+        "category": "audience_truth_background",
+        "url": "https://images.unsplash.com/photo-1729553199933-c897fea4f41f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHxjb25jZXJ0JTIwc3RhZGl1bSUyMGNyb3dkfGVufDB8fHx8MTc4MDkyNTgyOXww&ixlib=rb-4.1.0&q=85",
+        "description": "Large dark crowd of people to represent 75,000 festival goers (Optional usage as subtle bg texture)"
+      }
+    ],
+    "logos": [
+      {
+        "category": "bhai_ki_chai_logo",
+        "url": "https://i.ibb.co/Z1tZ2tMt/bhai-ki-chai-header-logo-png.webp"
+      },
+      {
+        "category": "gff_logo",
+        "url": "https://i.ibb.co/GvzRF0fC/Gff-2-6.png"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install and use 'Anton', 'Manrope', and 'Playfair Display' from Google Fonts in the frontend.",
+    "Ensure all frontend files use .js / .jsx extensions.",
+    "Implement the custom animated chai cursor using framer-motion and a global mouse position listener.",
+    "For horizontal scrolling in section 9, use GSAP ScrollTrigger pin feature to lock the container and scroll the cards horizontally.",
+    "Implement the animated SVG India map with framer-motion or GSAP. The map should be a valid SVG path of India. Add circular SVG elements as pins with CSS ripple animations.",
+    "Do NOT add any interactive CTA buttons like 'Download' or 'Contact'. The design is a static read-only presentation pitch.",
+    "Use exact Tailwind colors for #FF6B00 (Saffron), #0A0A0A (Black) and #B8960A (Gold).",
+    "Add data-testid attributes to all major sections and any animated numeric counters (e.g. data-testid=\"hero-section\", data-testid=\"counter-75000\").",
+    "All text content across the sections must reflect a 'bold, brutal, confident' style, emphasizing massive typography logic."
+  ]
+}

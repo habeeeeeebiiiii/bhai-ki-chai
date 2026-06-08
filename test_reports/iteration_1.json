@@ -1,0 +1,30 @@
+{
+  "summary": "Comprehensive frontend testing of Bhai Ki Chai × Grand Food Fest sponsorship proposal site at desktop (1920x1080) and mobile (375x812). All 12 sections present with correct data-testid attributes. Loading screen, hero, audience counter, FOCO, India map (17 pin/circle elements), numbers (6 stats with final values 75,000+, 10M+, ₹1Cr+, 3, 1, ∞), competitor, 8 benefit cards, chai conversation, ask, footer all verified. Hero text confirmed (75,000 / Chai / Lovers.). Animated counter reaches 75,000+. WhatYouGet section has scrollWidth=4448 on desktop (horizontal scroll confirmed) and stacks vertically on mobile (offsetWidth=375, count=8). No CTA buttons present (0 buttons found). No console errors. Minor 6px horizontal overflow on mobile (body=381 vs viewport=375).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Mobile 375px viewport", "issues": ["Minor 6px horizontal overflow (document.body.scrollWidth=381 vs window.innerWidth=375). Caused by an off-screen SVG element near x=-118 to -82 (likely a decorative illustration or absolutely-positioned chai/loading SVG remnant) and framer-motion x:60 initial transforms in AudienceTruth before whileInView animation fires. Not visually disruptive but body horizontal scroll is technically possible. Recommend adding overflow-x:hidden on body/html or constraining the offending SVG to within container."]},
+      {"screen": "AudienceTruth mobile", "issues": ["text-[28vw] on '75,000+' counter is 105px tall — large but does fit container (width 327 within 327 column). Acceptable."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "OPTIONAL/MINOR: Add overflow-x: hidden on body or fix the off-screen SVG/transformed element that pushes body scrollWidth to 381 on 375px viewport. Suspect: a hidden/decorative SVG path positioned at left=-118 OR framer-motion `x: -60`/`x: 60` initial transforms in AudienceTruth that briefly extend bounding rect.",
+    "No other action needed — all functional and content requirements met."
+  ],
+  "critical_code_review_comments": [
+    "AudienceTruth.jsx uses motion x:-60 and x:60 initial transforms without overflow-x:hidden on parent — can produce minor horizontal scrollbar on mobile until whileInView triggers.",
+    "App.js correctly manages body overflow during loading screen but does not lock overflow-x globally — consider adding overflow-x-hidden on the root .App container for safety on small viewports.",
+    "All sections have data-testid attributes (good for testability). Hero text split across hero-line-1/2/3 is correctly implemented."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped per request)", "frontend": "100% functional, ~98% design (minor mobile overflow)"},
+  "test_credentials": "N/A — static site, no auth",
+  "seed_data_creation": "None — static site",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Static frontend with no backend. Loading screen takes ~3s, wait ~5s after navigation before interacting. All 12 sections have data-testid attributes per spec. 8 benefit cards data-testid='benefit-card-01'..'benefit-card-08'. 6 stats data-testid='stat-1'..'stat-6'. India map renders 17 SVG circles (1 gold Hyderabad + multiple pins). Desktop horizontal scroll on WhatYouGet uses GSAP ScrollTrigger pin (scrollWidth=4448 vs viewport 1920). Mobile stacks cards vertically. NO buttons in DOM — design is intentionally CTA-free. No console errors observed.",
+  "rca of the issue": "Minor mobile overflow RCA: body.scrollWidth is 381 vs innerWidth 375 (~6px). Root cause: (a) framer-motion initial transforms `x: -60` and `x: 60` in AudienceTruth motion.div containers push children outside the column briefly before whileInView animates to x:0 (verified — at top of page bounding rects show 'md:col-span-7' at right=411 = 24px padding + 60px translate + 327 width). (b) A decorative/hidden SVG path near left=-118 (likely loading screen residual or chai cup illustration). Fix: add `overflow-x: hidden` on body in index.css or on .App in App.js."
+}

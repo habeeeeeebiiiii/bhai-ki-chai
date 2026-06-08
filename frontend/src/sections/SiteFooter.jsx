@@ -2,6 +2,7 @@ export default function SiteFooter() {
   return (
     <footer
       data-testid="site-footer"
+      id="footer"
       className="relative w-full bg-[#0A0A0A] text-white py-16 md:py-20 px-6 md:px-12 lg:px-20"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">

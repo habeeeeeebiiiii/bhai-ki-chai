@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import CustomCursor from "./components/CustomCursor";
 import LoadingScreen from "./components/LoadingScreen";
+import TopBar from "./components/TopBar";
 import Hero from "./sections/Hero";
 import OneLine from "./sections/OneLine";
 import AudienceTruth from "./sections/AudienceTruth";
@@ -30,6 +31,7 @@ function App() {
     <div className="App relative">
       <CustomCursor />
       <LoadingScreen onDone={() => setLoaded(true)} />
+      <TopBar />
 
       <main className="relative">
         <Hero />

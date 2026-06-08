@@ -10,11 +10,11 @@ export default function Hero() {
   return (
     <section
       data-testid="hero-section"
-      className="relative min-h-screen w-full bg-white flex flex-col justify-between pt-28 pb-12 px-6 md:px-12 lg:px-20 overflow-hidden"
+      className="relative min-h-screen w-full bg-white flex flex-col justify-between pt-32 md:pt-36 pb-12 px-6 md:px-12 lg:px-20 overflow-hidden"
     >
       <div className="flex items-center justify-between">
         <div className="text-[11px] tracking-[0.4em] uppercase text-black/60">
-          Bhai Ki Chai × Grand Food Fest
+          Sponsorship & Franchise Proposal
         </div>
         <div className="text-[11px] tracking-[0.4em] uppercase text-black/60 hidden md:block">
           Hyderabad · October 2026
